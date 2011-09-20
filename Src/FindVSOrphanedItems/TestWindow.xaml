@@ -1,0 +1,11 @@
+﻿<Window x:Class="Tools.VisualStudioOrphanedFiles.TestWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="TestWindow" Height="300" Width="300">
+    <Window.Resources>
+        <ResourceDictionary Source="Dictionary1.xaml"/>
+    </Window.Resources>
+    <Grid>
+        <Image Height="20" Width="20" Source="{StaticResource Horizon_Image_Open}"></Image>
+    </Grid>
+</Window>

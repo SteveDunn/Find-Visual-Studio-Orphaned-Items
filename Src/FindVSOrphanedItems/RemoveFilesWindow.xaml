@@ -1,0 +1,50 @@
+﻿<Window x:Class="Tools.VisualStudioOrphanedFiles.RemoveFilesWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Height="400" Width="600" Loaded="Window_Loaded" FontSize="15" Title="Remove Files" WindowStartupLocation="CenterOwner" ShowInTaskbar="False" Icon="/FindVSOrphanedItems;component/App.ico">
+    <Grid>
+
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="Blue" Offset="0.0"/>
+                <GradientStop Color="LightBlue" Offset="1.0" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        
+
+        <Grid.ColumnDefinitions/>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <ListBox x:Name="listBoxFiles" Grid.Row="0" SelectionMode="Extended" Background="#20FFFFFF"></ListBox>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <GroupBox Padding="4,4,30,4" Grid.Column="0" Header="Delete from" Foreground="Blue">
+                <StackPanel>
+                    <CheckBox x:Name="checkBoxDisk" Checked="deleteFromChecked">Disk</CheckBox>
+                    <CheckBox x:Name="checkBoxClearCase" Checked="deleteFromChecked">ClearCase</CheckBox>
+                </StackPanel>
+            </GroupBox>
+
+            <Grid Grid.Column="1" HorizontalAlignment="Right">
+                <StackPanel VerticalAlignment="Bottom" Orientation="Horizontal">
+                    <Button  
+                        x:Name="buttonOk"
+                        Content="_Remove"
+                        Margin="4,4,4,4" 
+                        IsEnabled="{Binding AnythingChecked}" 
+                        HorizontalAlignment="Right" 
+                        Click="okClicked"/>
+                    <Button Margin="4,4,4,4" HorizontalAlignment="Right" Click="cancelClicked" IsCancel="True">Cancel</Button>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
